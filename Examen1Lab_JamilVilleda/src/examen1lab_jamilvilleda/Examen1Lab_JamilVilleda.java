@@ -20,14 +20,13 @@ public class Examen1Lab_JamilVilleda {
      * @param args the command line arguments
      */
     static Scanner sc = new Scanner(System.in);
-
+    
     public static void main(String[] args) {
         String comando = "";
         String nombrecarpeta = "";
         String sizecarpeta = "";
         ArrayList<Object> lista = new ArrayList();
         Date fecha = new Date();
-
         System.out.println("Ingrese un nombre: ");
         String nombre = sc.next();
         System.out.println("Ingrese su nombre de usuario: ");
@@ -35,22 +34,57 @@ public class Examen1Lab_JamilVilleda {
         System.out.println("Ingrese el size: ");
         int size = sc.nextInt();
         lista.add(new SistemaArchivos(nombre, usuario, size));
-        System.out.print(usuario + "/" + "root" + "/");
-        sc.nextLine();
-        comando = sc.nextLine();
-        String[] comando2 = comando.split(" ");
-
-        if ("mkdir".equalsIgnoreCase(comando2[0])) {
-            String[] palabra = comando.split(" ");
-            for (String direccion : palabra) {
-                nombrecarpeta = palabra[1];
-                sizecarpeta = palabra[2];
+        
+        while (true) {
+            
+            System.out.print(usuario + "/" + "root" + "/");
+            sc.nextLine();
+            comando = sc.nextLine();
+            String[] comando2 = comando.split(" ");
+            
+            for (int i = 0; i < comando2.length; i++) {
+                if (comando2[i].equalsIgnoreCase("exit")) {
+                    System.exit(0);
+                }
             }
-            lista.add(new Archivo(nombrecarpeta, Integer.parseInt(sizecarpeta)));
-            System.out.println("Se ha creado exitosamente una carpeta de nombre: " + nombrecarpeta + "\n"
-                    + "Fecha creacion: " + fecha);
+            
+            if ("mkdir".equalsIgnoreCase(comando2[0])) {
+                String[] palabra = comando.split(" ");
+                for (String direccion : palabra) {
+                    nombrecarpeta = palabra[1];
+                    sizecarpeta = palabra[2];
+                }
+                lista.add(new Archivo(nombrecarpeta, Integer.parseInt(sizecarpeta)));
+                System.out.println("Se ha creado exitosamente una carpeta de nombre: " + nombrecarpeta + "\n"
+                        + "Fecha creacion: " + fecha);
+            }
+            
+            if ("del".equalsIgnoreCase(comando2[0])) {
+                String[] palabra = comando.split("  ");
+                
+            }
+            
+            if ("cat".equalsIgnoreCase(comando2[0])) {
+                String palabra = comando.substring(comando.length() - 4, comando.length());
+                String palabra2 = comando.substring(comando.length() - 5, comando.length());
+                if (palabra.equalsIgnoreCase(".txt")) {
+                    
+                } else if (palabra.equalsIgnoreCase(".exec")){
+                    
+                }
+             
+                
+            }
+            
+            if ("cd".equalsIgnoreCase(comando2[0])) {
+                String[] palabra = comando.split(" ");
+                for (String string : palabra) {
+//                    if (palabra[1] instanceof Archivo) {
+//                        
+//                    }                    
+                }
+            }
+            
         }
-        System.out.print(usuario + "/" + "root" + "/");
-        sc.nextLine();
     }
 }
