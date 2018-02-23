@@ -50,6 +50,11 @@ public class Archivo {
     public void setFecha(Date fecha) {
         this.fecha = fecha;
     }
+
+    @Override
+    public String toString() {
+        return "Archivo{" + "nombre=" + nombre + ", tama\u00f1o=" + tamaño + ", fecha=" + fecha + '}';
+    }
     
     
     

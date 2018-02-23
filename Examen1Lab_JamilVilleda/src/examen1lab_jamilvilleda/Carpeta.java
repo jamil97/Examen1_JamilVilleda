@@ -12,6 +12,25 @@ import java.util.ArrayList;
  * @author Jamil
  */
 public class Carpeta {
-    ArrayList <Archivo> archivo = new ArrayList();
+    
+    private ArrayList <Archivo> archivo = new ArrayList();
+
+    public Carpeta() {
+    }
+
+    public ArrayList<Archivo> getArchivo() {
+        return archivo;
+    }
+
+    public void setArchivo(ArrayList<Archivo> archivo) {
+        this.archivo = archivo;
+    }
+
+    @Override
+    public String toString() {
+        return "Carpeta{" + "archivo=" + archivo + '}';
+    }
+    
+    
     
 }
