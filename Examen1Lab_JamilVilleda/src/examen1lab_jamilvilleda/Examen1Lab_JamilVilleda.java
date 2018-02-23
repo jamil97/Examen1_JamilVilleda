@@ -10,6 +10,7 @@ package examen1lab_jamilvilleda;
  * @author Jamil
  */
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Scanner;
 import java.util.StringTokenizer;
 
@@ -25,7 +26,8 @@ public class Examen1Lab_JamilVilleda {
         String nombrecarpeta = "";
         String sizecarpeta = "";
         ArrayList<Object> lista = new ArrayList();
-        
+        Date fecha = new Date();
+
         System.out.println("Ingrese un nombre: ");
         String nombre = sc.next();
         System.out.println("Ingrese su nombre de usuario: ");
@@ -33,22 +35,22 @@ public class Examen1Lab_JamilVilleda {
         System.out.println("Ingrese el size: ");
         int size = sc.nextInt();
         lista.add(new SistemaArchivos(nombre, usuario, size));
-
         System.out.print(usuario + "/" + "root" + "/");
-        comando = sc.next();
-        String comando2 = comando.substring(0, 4);
-        if ("mkdir".equals(comando2)) {
-            StringTokenizer st = new StringTokenizer(comando, " ");
-            while (st.hasMoreTokens()) {
-                nombrecarpeta = st.nextToken();
-                sizecarpeta = st.nextToken();
+        sc.nextLine();
+        comando = sc.nextLine();
+        String[] comando2 = comando.split(" ");
+
+        if ("mkdir".equalsIgnoreCase(comando2[0])) {
+            String[] palabra = comando.split(" ");
+            for (String direccion : palabra) {
+                nombrecarpeta = palabra[1];
+                sizecarpeta = palabra[2];
             }
-           lista.add(new Carpeta());
-           
-           
-            
+            lista.add(new Archivo(nombrecarpeta, Integer.parseInt(sizecarpeta)));
+            System.out.println("Se ha creado exitosamente una carpeta de nombre: " + nombrecarpeta + "\n"
+                    + "Fecha creacion: " + fecha);
         }
-
+        System.out.print(usuario + "/" + "root" + "/");
+        sc.nextLine();
     }
-
 }
