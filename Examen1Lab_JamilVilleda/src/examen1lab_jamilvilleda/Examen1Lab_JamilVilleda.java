@@ -104,11 +104,16 @@ public class Examen1Lab_JamilVilleda {
             if ("mod".equalsIgnoreCase(comando2[0])) {
                 String[] palabra = comando.split(" ");
                 for (String string : palabra) {
-
                     String txt = palabra[1];
-      
-                    
                 }
+
+            }
+
+            if ("cd..".equalsIgnoreCase(comando2[0])) {
+
+            }
+
+            if ("exec".equalsIgnoreCase(comando2[0])) {
 
             }
         }
